@@ -1,7 +1,7 @@
 show_watermark_in_background:
   default: true
   description: 
-    en: "If enabled will generate and display a watermark in the page."
+    en: "If enabled will generate and display a watermark on the page."
     pt_BR: "Se ativado irá gerar e exibir uma marca d'água na página."
 
 tile_width:
@@ -42,7 +42,7 @@ text_align:
     - center
     - right
   description: 
-    en: "How the text should be aligned relative to x,y coordinates when drawed."
+    en: "How the text should be aligned relative to x,y coordinates when drawn."
     pt_BR: "Como o texto deve ser alinhado em relação as coordenadas x,y quando desenhado."
 
 text_rotation:
@@ -51,7 +51,7 @@ text_rotation:
   max: 90
   type: integer  
   description: 
-    en: "The angle in which the text should be rotate relative to x,y coordinates when drawed."
+    en: "The angle in which the text should be rotated relative to x,y coordinates when drawn."
     pt_BR: "O ângulo em que o texto deve ser rotacionado em relação as coordenadas x,y quando desenhado."
 
 display_text: 
