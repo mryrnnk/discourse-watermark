@@ -1,0 +1,146 @@
+show_watermark_in_background:
+  default: true
+  description: 
+    en: "If enabled will generate and display a watermark in the page."
+    pt_BR: "Se ativado irá gerar e exibir uma marca d'água na página."
+
+tile_width:
+  default: 220
+  min: 0
+  type: integer  
+  description: 
+    en: "The width (in px) of the tile that contains the watermark information."
+    pt_BR: "O comprimento (em px) do bloco que contém a informação da marca d'água."
+
+tile_height:
+  default: 220
+  min: 0
+  type: integer  
+  description: 
+    en: "The height (in px) of the tile that contains the watermark information."
+    pt_BR: "A altura (em px) do bloco que contém a informação da marca d'água."
+
+scroll_enabled:
+  default: true
+  type: bool
+  description: 
+    en: "If enabled the watermark will be scrolled with the page."
+    pt_BR: "Se ativado a marca d'água irá acompanhar a rolagem da página."
+
+color:
+  default: "var(--primary-low)"
+  type: string
+  description: 
+    en: "The color of the watermark text."
+    pt_BR: "A cor do texto na marca d'agua."
+
+text_align:
+  default: center
+  type: enum
+  choices:
+    - left
+    - center
+    - right
+  description: 
+    en: "How the text should be aligned relative to x,y coordinates when drawed."
+    pt_BR: "Como o texto deve ser alinhado em relação as coordenadas x,y quando desenhado."
+
+text_rotation:
+  default: -45
+  min: -90
+  max: 90
+  type: integer  
+  description: 
+    en: "The angle in which the text should be rotate relative to x,y coordinates when drawed."
+    pt_BR: "O ângulo em que o texto deve ser rotacionado em relação as coordenadas x,y quando desenhado."
+
+display_text: 
+  default: ""
+  type: string
+  description: 
+    en: "Text to be rendered in the watermark."
+    pt_BR: "Texto para ser renderizado na marca d'água."
+
+display_text_font:
+  default: "bolder 1rem var(--font-family)"
+  type: string
+  description: 
+    en: "The font used to render the text (parsed as CSS font value)."
+    pt_BR: "A fonte usada para renderizar o texto (intepretado com um valor da propriedade font em CSS)."
+
+display_text_x:
+  default: 0
+  type: integer    
+  description: 
+    en: "The x-axis coordinate of the point at which to begin drawing the text in the tile canvas, in pixels."
+    pt_BR: "A coordenada no eixo x para o ponto em que o texto deve ser desenhado no canvas do bloco, em pixels."
+
+display_text_y:
+  default: 116
+  type: integer    
+  description: 
+    en: "The y-axis coordinate of the point at which to begin drawing the text in the tile canvas, in pixels."
+    pt_BR: "A coordenada no eixo y para o ponto em que o texto deve ser desenhado no canvas do bloco, em pixels."
+
+display_username:
+  default: true
+  type: bool
+  description: 
+    en: "If enabled the watermark will render the current username."
+    pt_BR: "Se ativado a marca d'água irá renderizar o código do usuário."
+
+display_username_font:
+  default: "bolder 2rem var(--font-family)"
+  type: string
+  description: 
+    en: "The font used to render the username (parsed as CSS font value)."
+    pt_BR: "A fonte usada para renderizar o código do usuário (intepretado com um valor da propriedade font em CSS)."
+
+display_username_x:
+  default: 0
+  type: integer    
+  description: 
+    en: "The x-axis coordinate of the point at which to begin drawing the username in the tile canvas, in pixels."
+    pt_BR: "A coordenada no eixo x para o ponto em que o código do usuário deve ser desenhado no canvas do bloco, em pixels."
+
+display_username_y:
+  default: 140
+  type: integer    
+  description: 
+    en: "The y-axis coordinate of the point at which to begin drawing the username in the tile canvas, in pixels."
+    pt_BR: "A coordenada no eixo y para o ponto em que o código do usuário deve ser desenhado no canvas do bloco, em pixels."
+
+display_timestamp:
+  default: true
+  type: bool
+  description: 
+    en: "If enabled the watermark will render the timestamp the page was rendered."
+    pt_BR: "Se ativado a marca d'água irá renderizar o dia/horário em que a página foi renderizada."
+
+display_timestamp_format:
+  default: ""
+  type: string
+  description: 
+    en: "How the timestamp will be formatted. For information about the valid formats, please refer to https://momentjs.com/docs/#/displaying/."
+    pt_BR: "Como o dia/horário deve ser formatado. Para informações osbre os formatos válidos, por favor consulte https://momentjs.com/docs/#/displaying/."
+
+display_timestamp_font:
+  default: "bolder 1rem var(--font-family)"
+  type: string
+  description: 
+    en: "The font used to render the timestamp (parsed as CSS font value)."
+    pt_BR: "A fonte usada para renderizar o dia/horário (intepretado com um valor da propriedade font em CSS)."
+
+display_timestamp_x:
+  default: 0
+  type: integer    
+  description: 
+    en: "The x-axis coordinate of the point at which to begin drawing the timestamp in the tile canvas, in pixels."
+    pt_BR: "A coordenada no eixo x para o ponto em que a data/horário deve ser desenhada no canvas do bloco, em pixels."
+
+display_timestamp_y:
+  default: 164
+  type: integer    
+  description: 
+    en: "The y-axis coordinate of the point at which to begin drawing the timestamp in the tile canvas, in pixels."
+    pt_BR: "A coordenada no eixo y para o ponto em que a data/horário deve ser desenhada no canvas do bloco, em pixels."

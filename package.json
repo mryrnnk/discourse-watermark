@@ -1,0 +1,8 @@
+{
+  "author": "Sérgio Saquetim",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-discourse": "latest",
+    "prettier": "^2.5.1"
+  }
+}
