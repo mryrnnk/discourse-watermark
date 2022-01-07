@@ -19,7 +19,7 @@ export default {
               "watermark-background"
             );
 
-            // we will use the dom element to resolve the CSS color even if 
+            // we will use the dom element to resolve the CSS color even if
             // the user specify a CSS variable
             const resolvedColor = getComputedColor(
               watermarkDiv,
@@ -45,7 +45,9 @@ export default {
               username: settings.display_username
                 ? currentUser?.username
                 : null,
-              timestamp: moment().format(settings.display_timestamp_format),
+              timestamp: settings.display_timestamp
+                ? moment().format(settings.display_timestamp_format)
+                : null,
             };
 
             const watermark = renderWatermarkDataURL(
