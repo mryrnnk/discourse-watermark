@@ -145,9 +145,9 @@ display_timestamp_y:
     en: "The y-axis coordinate of the point at which to begin drawing the timestamp in the tile canvas, in pixels."
     pt_BR: "A coordenada no eixo y para o ponto em que a data/horário deve ser desenhada no canvas do bloco, em pixels."
 
-omit_if_title_matches:
-  default: "My Production site"
+include_if_title_matches:
+  default: ""
   type: string
   description:
-    en: "Do not display watermark if site title matches this string"
-    pt_BR: "Não exibir marca d'água se o título do site corresponder a essa string"
+    en: "Display watermark only if site title matches this string (empty string always matches)."
+    pt_BR: "Exibir marca d'água somente se o título do site corresponder a essa string (a string vazia sempre corresponde)."

@@ -15,14 +15,14 @@ const renderWatermarkDataURL = (canvas, settings, data) => {
     display_timestamp_font,
     display_timestamp_x,
     display_timestamp_y,
-    omit_if_title_matches,
+    include_if_title_matches,
   } = settings;
 
   const renderText = display_text.trim() !== "";
   const { username, timestamp } = data;
-  const noRender = Discourse.SiteSettings.title.match(omit_if_title_matches);
+  const okToRender = Discourse.SiteSettings.title.match(include_if_title_matches)
 
-  if (noRender || !(renderText || username || timestamp)) return;
+  if (!okToRender || !(renderText || username || timestamp)) return;
 
   canvas.width = width;
   canvas.height = height;
