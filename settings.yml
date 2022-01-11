@@ -144,3 +144,9 @@ display_timestamp_y:
   description: 
     en: "The y-axis coordinate of the point at which to begin drawing the timestamp in the tile canvas, in pixels."
     pt_BR: "A coordenada no eixo y para o ponto em que a data/horário deve ser desenhada no canvas do bloco, em pixels."
+
+omit_if_title_matches:
+  default: "My Production site"
+  type: string
+  description:
+    en: "Do not display watermark if site title matches this"
