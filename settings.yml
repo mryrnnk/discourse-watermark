@@ -149,4 +149,5 @@ omit_if_title_matches:
   default: "My Production site"
   type: string
   description:
-    en: "Do not display watermark if site title matches this"
+    en: "Do not display watermark if site title matches this string"
+    pt_BR: "Não exibir marca d'água se o título do site corresponder a essa string"
