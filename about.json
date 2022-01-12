@@ -1,6 +1,6 @@
 {
-  "about_url": null,
-  "license_url": null,
+  "about_url": "https://meta.discourse.org/t/discourse-web-page-watermark/214108",
+  "license_url": "https://github.com/megothss/discourse-watermark/blob/main/LICENSE.txt",
   "assets": {
   },
   "name": "discourse-watermark",
