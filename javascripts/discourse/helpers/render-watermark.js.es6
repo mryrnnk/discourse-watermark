@@ -1,3 +1,5 @@
+import { helperContext } from "discourse-common/lib/helpers";
+
 const renderWatermarkDataURL = (canvas, settings, data) => {
   const {
     tile_width: width,
@@ -15,11 +17,14 @@ const renderWatermarkDataURL = (canvas, settings, data) => {
     display_timestamp_font,
     display_timestamp_x,
     display_timestamp_y,
+    include_if_title_matches,
   } = settings;
+
   const renderText = display_text.trim() !== "";
   const { username, timestamp } = data;
+  const okToRender = helperContext().siteSettings.title.match(include_if_title_matches)
 
-  if (!(renderText || username || timestamp)) return;
+  if (!okToRender || !(renderText || username || timestamp)) return;
 
   canvas.width = width;
   canvas.height = height;
