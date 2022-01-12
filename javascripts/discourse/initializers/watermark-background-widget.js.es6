@@ -133,14 +133,17 @@ export default {
           return showWatermark;
         },
 
+        getDomElement() {
+          return document.getElementById("watermark-background");
+        },
+
+        clearWatermark() {
+          const watermarkDiv = this.getDomElement();
+          watermarkDiv.style.backgroundImage = "";
+        },
+
         renderWatermark() {
-          const watermarkDiv = document.getElementById("watermark-background");
-
-          if (!this.shouldShowWatermark()) {
-            watermarkDiv.style.backgroundImage = "";
-            return;
-          }
-
+          const watermarkDiv = this.getDomElement();
           const canvas = document.createElement("canvas");
 
           // we will use the dom element to resolve the CSS color even if
@@ -188,17 +191,14 @@ export default {
         },
 
         init() {
-          const appEvents = this.container.lookup("service:app-events");
-
-          // updates the watermark again if the header of the topic was updated
-          // in case the category or tags were edited
-          appEvents.on("header:update-topic", (data) => {
-            this.renderWatermark();
-          });
-
           // updates the watermark after renders
           Ember.run.schedule("afterRender", () => {
-            this.renderWatermark();
+            if (this.shouldShowWatermark()) {
+              this.renderWatermark();
+              return;
+            }
+
+            this.clearWatermark();
           });
         },
 
@@ -210,9 +210,22 @@ export default {
       });
 
       api.decorateWidget("watermark-background-widget:after", (helper) => {
-        helper.widget.appEvents.on("page:changed", () => {
-          helper.widget.scheduleRerender();
-        });
+        const appEvents = helper.widget.appEvents;
+
+        const triggerEvents = [
+          // render on every page chance
+          "page:changed",
+          // updates the watermark again if the header of the topic was updated
+          // in case the category or tags were edited
+          "header:update-topic",
+        ];
+
+        // event binding
+        triggerEvents.forEach((eventName) =>
+          appEvents.on(eventName, () => {
+            helper.widget.scheduleRerender();
+          })
+        );
       });
     });
   },
