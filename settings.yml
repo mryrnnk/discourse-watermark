@@ -4,6 +4,16 @@ show_watermark_in_background:
     en: "If enabled will generate and display a watermark on the page."
     pt_BR: "Se ativado irá gerar e exibir uma marca d'água na página."
 
+only_in_categories:
+  default: ""
+  type: list
+  list_type: category
+
+except_in_categories:
+  default: ""
+  type: list
+  list_type: category
+
 tile_width:
   default: 220
   min: 0
