@@ -14,6 +14,16 @@ except_in_categories:
   type: list
   list_type: category
 
+only_in_tags:
+  default: ""
+  type: list
+  list_type: tag
+
+except_in_tags:
+  default: ""
+  type: list
+  list_type: tag
+
 tile_width:
   default: 220
   min: 0
