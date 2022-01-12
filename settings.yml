@@ -4,25 +4,44 @@ show_watermark_in_background:
     en: "If enabled will generate and display a watermark on the page."
     pt_BR: "Se ativado irá gerar e exibir uma marca d'água na página."
 
+scroll_enabled:
+  default: true
+  type: bool
+  description: 
+    en: "If enabled the watermark will be scrolled with the page."
+    pt_BR: "Se ativado a marca d'água irá acompanhar a rolagem da página."
+
 only_in_categories:
   default: ""
   type: list
   list_type: category
+  description: 
+    en: "List of categories in which the watermark should be displayed."
+    pt_BR: "Lista de categorias em que a marca d'água deve ser exibida."
 
 except_in_categories:
   default: ""
   type: list
   list_type: category
+  description: 
+    en: "List of categories in which the watermark should not be displayed."
+    pt_BR: "Lista de categorias em que a marca d'água não deve ser exibida."
 
 only_in_tags:
   default: ""
   type: list
   list_type: tag
+  description: 
+    en: "List of tags in which the watermark should be displayed."
+    pt_BR: "Lista de tags em que a marca d'água deve ser exibida."
 
 except_in_tags:
   default: ""
   type: list
   list_type: tag
+  description: 
+    en: "List of tags in which the watermark should not be displayed."
+    pt_BR: "Lista de tags em que a marca d'água não deve ser exibida."
 
 tile_width:
   default: 220
@@ -39,13 +58,6 @@ tile_height:
   description: 
     en: "The height (in px) of the tile that contains the watermark information."
     pt_BR: "A altura (em px) do bloco que contém a informação da marca d'água."
-
-scroll_enabled:
-  default: true
-  type: bool
-  description: 
-    en: "If enabled the watermark will be scrolled with the page."
-    pt_BR: "Se ativado a marca d'água irá acompanhar a rolagem da página."
 
 color:
   default: "var(--primary-low)"
