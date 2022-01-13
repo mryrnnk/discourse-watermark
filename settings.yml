@@ -43,6 +43,20 @@ except_in_tags:
     en: "List of tags in which the watermark should not be displayed."
     pt_BR: "Lista de tags em que a marca d'água não deve ser exibida."
 
+if_site_title_matches:
+  default: ""
+  type: string
+  description:
+    en: "Display watermark only if site title matches this regular expression."
+    pt_BR: "Exibir marca d'água somente se o título do site corresponder a essa expressão regular."
+
+or_if_url_matches:
+  default: ""
+  type: string
+  description:
+    en: "OR display the watermark if url matches this regular expression. Note that the URL tested does not include the hostname."
+    pt_BR: "OU exiba a marca d'água se a URL corresponder a essa expressão regular. Observe que a URL testada não inclui o nome de dominio."
+
 tile_width:
   default: 220
   min: 0
@@ -176,10 +190,3 @@ display_timestamp_y:
   description: 
     en: "The y-axis coordinate of the point at which to begin drawing the timestamp in the tile canvas, in pixels."
     pt_BR: "A coordenada no eixo y para o ponto em que a data/horário deve ser desenhada no canvas do bloco, em pixels."
-
-include_if_title_matches:
-  default: ""
-  type: string
-  description:
-    en: "Display watermark only if site title matches this string (empty string always matches)."
-    pt_BR: "Exibir marca d'água somente se o título do site corresponder a essa string (a string vazia sempre corresponde)."

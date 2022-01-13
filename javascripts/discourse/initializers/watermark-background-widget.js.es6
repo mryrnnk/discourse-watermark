@@ -21,6 +21,7 @@ export default {
     const exceptInTags = settings.except_in_tags
       .split("|")
       .filter((id) => id !== "");
+    const urlRegexp = new RegExp(settings.or_if_url_matches);
 
     withPluginApi("0.8", (api) => {
       api.createWidget("watermark-background-widget", {
@@ -94,10 +95,29 @@ export default {
           const container = this.container;
           const router = container.lookup("router:main");
 
-          let showWatermark = true;
+          // check if there something to be rendered in the first place
+          if (
+            !(
+              settings.display_text.trim() !== "" ||
+              settings.display_username ||
+              settings.display_timestamp
+            )
+          ) {
+            return false;
+          }
+
+          let showWatermark;
+
+          // PR by pfaffman
+          showWatermark = this.siteSettings.title.match(
+            settings.if_site_title_matches
+          );
 
           // watermark applied by categories
-          if (onlyInCategories.length > 0 || exceptInCategories.length > 0) {
+          if (
+            showWatermark &&
+            (onlyInCategories.length > 0 || exceptInCategories.length > 0)
+          ) {
             const categories = this.getCurrentCategories(router);
 
             const testOnlyCategories =
@@ -128,6 +148,10 @@ export default {
               (exceptInTags.length === 0 ||
                 tags.every((id) => exceptInTags.indexOf(id) === -1));
             showWatermark = testOnlyTags && testExceptTags;
+          }
+
+          if (settings.or_if_url_matches !== "") {
+            showWatermark = showWatermark || urlRegexp.test(router.currentURL);
           }
 
           return showWatermark;
@@ -183,6 +207,11 @@ export default {
             },
             data
           );
+
+          if (!watermark) {
+            this.clearWatermark();
+            return;
+          }
 
           const backgroundImage = `url(${watermark})`;
           if (watermarkDiv.style.backgroundImage !== backgroundImage) {
