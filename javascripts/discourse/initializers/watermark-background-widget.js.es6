@@ -21,7 +21,10 @@ export default {
     const exceptInTags = settings.except_in_tags
       .split("|")
       .filter((id) => id !== "");
-    const urlRegexp = new RegExp(settings.or_if_url_matches);
+    const urlRegexps = settings.or_if_url_matches
+      .split("|")
+      .filter((id) => id !== "")
+      .map((v) => new RegExp(v));
 
     withPluginApi("0.8", (api) => {
       api.createWidget("watermark-background-widget", {
@@ -150,8 +153,9 @@ export default {
             showWatermark = testOnlyTags && testExceptTags;
           }
 
-          if (settings.or_if_url_matches !== "") {
-            showWatermark = showWatermark || urlRegexp.test(router.currentURL);
+          for (const regex of urlRegexps) {
+            showWatermark = showWatermark || regex.test(router.currentURL);
+            if (showWatermark) break;
           }
 
           return showWatermark;

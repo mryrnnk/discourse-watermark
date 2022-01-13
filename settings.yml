@@ -52,10 +52,10 @@ if_site_title_matches:
 
 or_if_url_matches:
   default: ""
-  type: string
+  type: list
   description:
-    en: "OR display the watermark if url matches this regular expression. Note that the URL tested does not include the hostname."
-    pt_BR: "OU exiba a marca d'água se a URL corresponder a essa expressão regular. Observe que a URL testada não inclui o nome de dominio."
+    en: "OR display the watermark if url matches any of the regular expressions in the list. Note that the URL tested does not include the hostname."
+    pt_BR: "OU exiba a marca d'água se a URL corresponder a qualquer expressão regular na lista. Observe que a URL testada não inclui o nome de dominio."
 
 tile_width:
   default: 220
