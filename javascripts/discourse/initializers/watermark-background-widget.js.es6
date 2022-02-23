@@ -95,8 +95,8 @@ export default {
         },
 
         shouldShowWatermark() {
-          const container = this.container;
-          const router = container.lookup("router:main");
+          const register = this.register;
+          const router = register.lookup("router:main");
 
           // check if there something to be rendered in the first place
           if (
